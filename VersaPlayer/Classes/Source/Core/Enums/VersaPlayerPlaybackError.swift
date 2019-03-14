@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum VersaPlayerPlaybackError {
+@objc public enum VersaPlayerPlaybackError: Int {
     case unknown
     case notFound
     case unauthorized

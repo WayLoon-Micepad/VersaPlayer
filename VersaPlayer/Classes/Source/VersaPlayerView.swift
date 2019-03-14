@@ -51,7 +51,7 @@ open class VersaPlayerView: View, PIPProtocol {
     public var renderingView: VersaPlayerRenderingView!
     
     /// VersaPlayerPlaybackDelegate instance
-    public weak var playbackDelegate: VersaPlayerPlaybackDelegate? = nil
+    @objc public weak var playbackDelegate: VersaPlayerPlaybackDelegate? = nil
     
     /// VersaPlayerDecryptionDelegate instance to be used only when a VPlayer item with isEncrypted = true is passed
     public weak var decryptionDelegate: VersaPlayerDecryptionDelegate? = nil
@@ -237,7 +237,7 @@ open class VersaPlayerView: View, PIPProtocol {
     ///
     /// - Parameters:
     ///     - item: The VPlayerItem instance to add to player.
-    open func set(item: VersaPlayerItem?) {
+    @objc open func set(item: VersaPlayerItem?) {
         if !ready {
             prepare()
         }
