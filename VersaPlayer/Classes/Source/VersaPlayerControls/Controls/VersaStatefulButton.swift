@@ -19,7 +19,7 @@ public typealias Button = UIButton
 #endif
 
 @IBDesignable
-open class VersaStatefulButton: Button {
+@objc open class VersaStatefulButton: Button {
     
     #if os(macOS)
     open override var state: NSControl.StateValue {
@@ -35,8 +35,8 @@ open class VersaStatefulButton: Button {
     @IBInspectable public var activeImage: NSImage? = nil
     @IBInspectable public var inactiveImage: NSImage? = nil
     #else
-    @IBInspectable public var activeImage: UIImage? = nil
-    @IBInspectable public var inactiveImage: UIImage? = nil {
+    @objc @IBInspectable public var activeImage: UIImage? = nil
+    @objc @IBInspectable public var inactiveImage: UIImage? = nil {
         didSet {
             setImage(inactiveImage, for: .normal)
         }
