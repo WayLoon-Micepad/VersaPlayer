@@ -114,7 +114,7 @@ open class VersaPlayerView: View, PIPProtocol {
     /// - Parameters:
     ///     - controls: VersaPlayerControls instance used to display controls
     ///     - gestureReciever: Optional gesture reciever view to be used to recieve gestures
-    public func use(controls: VersaPlayerControls, with gestureReciever: VersaPlayerGestureRecieverView? = nil) {
+    @objc public func use(controls: VersaPlayerControls, with gestureReciever: VersaPlayerGestureRecieverView? = nil) {
         self.controls = controls
         let coordinator = VersaPlayerControlsCoordinator()
         coordinator.player = self

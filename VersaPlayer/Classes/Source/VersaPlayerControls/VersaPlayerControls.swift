@@ -18,7 +18,7 @@ import AVKit
 import MediaPlayer
 #endif
 
-open class VersaPlayerControls: View {
+@objc open class VersaPlayerControls: View {
     
     /// VersaPlayer intance being controlled
     public weak var handler: VersaPlayerView!
