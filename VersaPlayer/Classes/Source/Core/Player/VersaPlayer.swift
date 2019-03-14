@@ -108,7 +108,7 @@ extension VersaPlayer {
     /// Start time
     ///
     /// - Returns: Player's current item start time as CMTime
-    open func startTime() -> CMTime {
+    @objc open func startTime() -> CMTime {
         guard let item = currentItem else {
             return CMTime(seconds: 0, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         }
@@ -123,7 +123,7 @@ extension VersaPlayer {
     /// End time
     ///
     /// - Returns: Player's current item end time as CMTime
-    open func endTime() -> CMTime {
+    @objc open func endTime() -> CMTime {
         guard let item = currentItem else {
             return CMTime(seconds: 0, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         }
