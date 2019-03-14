@@ -36,7 +36,7 @@ open class VersaPlayer: AVPlayer, AVAssetResourceLoaderDelegate {
     }
     
     /// VersaPlayer instance
-    public weak var handler: VersaPlayerView!
+    @objc public weak var handler: VersaPlayerView!
     
     /// Caption text style rules
     lazy public var captionStyling: VersaPlayerCaptionStyling = {
