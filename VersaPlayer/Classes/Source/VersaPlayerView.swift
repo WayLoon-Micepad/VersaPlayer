@@ -222,12 +222,19 @@ open class VersaPlayerView: View, PIPProtocol {
             if let window = UIApplication.shared.keyWindow {
                 nonFullscreenContainer = superview
                 removeFromSuperview()
-                window.backgroundColor = .black
-                layout(view: self, into: window)
+                let containerView = UIView()
+                containerView.backgroundColor = .black
+                NSLayoutConstraint.activate([
+                    containerView.topAnchor.constraint(equalTo: topAnchor),
+                    containerView.bottomAnchor.constraint(equalTo: bottomAnchor),
+                    containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                    containerView.trailingAnchor.constraint(equalTo: trailingAnchor)
+                    ])
+                layout(view: containerView, into: window)
             }
             #endif
         }else {
-            superview?.backgroundColor = nil
+            superview?.removeFromSuperview()
             removeFromSuperview()
             layout(view: self, into: nonFullscreenContainer)
         }
