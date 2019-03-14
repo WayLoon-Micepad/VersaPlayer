@@ -13,7 +13,7 @@ import UIKit
 #endif
 import Foundation
 
-open class VersaPlayerControlsBehaviour {
+@objc open class VersaPlayerControlsBehaviour: NSObject {
     
     /// VersaPlayerControls instance being controlled
     public weak var controls: VersaPlayerControls!
@@ -98,7 +98,7 @@ open class VersaPlayerControlsBehaviour {
     }
     
     /// Hide the controls
-    open func hide() {
+    @objc open func hide() {
         if deactivationBlock != nil {
             deactivationBlock!(controls)
         }else {
@@ -108,7 +108,7 @@ open class VersaPlayerControlsBehaviour {
     }
     
     /// Show the controls
-    open func show() {
+    @objc open func show() {
         if !shouldShowControls {
             return
         }

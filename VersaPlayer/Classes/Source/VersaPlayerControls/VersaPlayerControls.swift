@@ -24,7 +24,7 @@ import MediaPlayer
     public weak var handler: VersaPlayerView!
     
     /// VersaPlayerControlsBehaviour being used to validate ui
-    public var behaviour: VersaPlayerControlsBehaviour!
+    @objc public var behaviour: VersaPlayerControlsBehaviour!
     
     #if os(iOS)
     public var airplayButton: MPVolumeView? = nil
