@@ -39,16 +39,16 @@ open class VersaPlayerView: View, PIPProtocol {
     }
 
     /// VersaPlayer extension dictionary
-    public var extensions: [String: VersaPlayerExtension] = [:]
+    @objc public var extensions: [String: VersaPlayerExtension] = [:]
     
     /// AVPlayer used in VersaPlayer implementation
-    public var player: VersaPlayer!
+    @objc public var player: VersaPlayer!
     
     /// VersaPlayerControls instance being used to display controls
-    public var controls: VersaPlayerControls? = nil
+    @objc public var controls: VersaPlayerControls? = nil
     
     /// VersaPlayerRenderingView instance
-    public var renderingView: VersaPlayerRenderingView!
+    @objc public var renderingView: VersaPlayerRenderingView!
     
     /// VersaPlayerPlaybackDelegate instance
     @objc public weak var playbackDelegate: VersaPlayerPlaybackDelegate? = nil
@@ -61,26 +61,26 @@ open class VersaPlayerView: View, PIPProtocol {
     
     #if os(iOS)
     /// AVPictureInPictureController instance
-    public var pipController: AVPictureInPictureController? = nil
+    @objc public var pipController: AVPictureInPictureController? = nil
     #endif
 
     /// Whether player is prepared
-    public var ready: Bool = false
+    @objc public var ready: Bool = false
     
     /// Whether it should autoplay when adding a VPlayerItem
-    public var autoplay: Bool = true
+    @objc public var autoplay: Bool = true
 
     /// Whether Player is currently playing
-    public var isPlaying: Bool = false
+    @objc public var isPlaying: Bool = false
     
     /// Whether Player is seeking time
-    public var isSeeking: Bool = false
+    @objc public var isSeeking: Bool = false
     
     /// Whether Player is presented in Fullscreen
-    public var isFullscreenModeEnabled: Bool = false
+    @objc public var isFullscreenModeEnabled: Bool = false
     
     /// Whether PIP Mode is enabled via pipController
-    public var isPipModeEnabled: Bool = false
+    @objc public var isPipModeEnabled: Bool = false
     
     #if os(macOS)
     open override var wantsLayer: Bool {
