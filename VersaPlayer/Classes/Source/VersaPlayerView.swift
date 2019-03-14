@@ -89,12 +89,12 @@ open class VersaPlayerView: View, PIPProtocol {
     #endif
     
     /// Whether Player is Fast Forwarding
-    public var isForwarding: Bool {
+    @objc public var isForwarding: Bool {
         return player.rate > 1
     }
     
     /// Whether Player is Rewinding
-    public var isRewinding: Bool {
+    @objc public var isRewinding: Bool {
         return player.rate < 0
     }
     
@@ -133,7 +133,7 @@ open class VersaPlayerView: View, PIPProtocol {
     ///
     /// - Parameters:
     ///     - time: Time to be updated to
-    public func updateControls(toTime time: CMTime) {
+    @objc public func updateControls(toTime time: CMTime) {
         controls?.timeDidChange(toTime: time)
     }
     
@@ -142,7 +142,7 @@ open class VersaPlayerView: View, PIPProtocol {
     /// - Parameters:
     ///     - ext: The instance of the extension.
     ///     - name: The name of the extension.
-    open func addExtension(extension ext: VersaPlayerExtension, with name: String) {
+    @objc open func addExtension(extension ext: VersaPlayerExtension, with name: String) {
         ext.player = self
         ext.prepare()
         extensions[name] = ext
@@ -152,12 +152,12 @@ open class VersaPlayerView: View, PIPProtocol {
     ///
     /// - Parameters:
     ///     - name: The name of the extension.
-    open func getExtension(with name: String) -> VersaPlayerExtension? {
+    @objc open func getExtension(with name: String) -> VersaPlayerExtension? {
         return extensions[name]
     }
     
     /// Prepares the player to play
-    open func prepare() {
+    @objc open func prepare() {
         ready = true
         player = VersaPlayer()
         player.handler = self
@@ -171,7 +171,7 @@ open class VersaPlayerView: View, PIPProtocol {
     /// - Parameters:
     ///     - view: The view to layout.
     ///     - into: The container view.
-    open func layout(view: View, into: View? = nil) {
+    @objc open func layout(view: View, into: View? = nil) {
         guard let into = into else {
             return
         }
@@ -188,7 +188,7 @@ open class VersaPlayerView: View, PIPProtocol {
     ///
     /// - Parameters:
     ///     - enabled: Whether or not to enable
-    open func setNativePip(enabled: Bool) {
+    @objc open func setNativePip(enabled: Bool) {
         if pipController == nil && renderingView != nil {
             let controller = AVPictureInPictureController(playerLayer: renderingView!.renderingLayer.playerLayer)
             controller?.delegate = self
@@ -207,7 +207,7 @@ open class VersaPlayerView: View, PIPProtocol {
     ///
     /// - Parameters:
     ///     - enabled: Whether or not to enable
-    open func setFullscreen(enabled: Bool) {
+    @objc open func setFullscreen(enabled: Bool) {
         if enabled == isFullscreenModeEnabled {
             return
         }
