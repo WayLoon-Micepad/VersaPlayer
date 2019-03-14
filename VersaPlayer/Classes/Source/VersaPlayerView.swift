@@ -224,6 +224,7 @@ open class VersaPlayerView: View, PIPProtocol {
                 removeFromSuperview()
                 let containerView = UIView()
                 containerView.backgroundColor = .black
+                containerView.addSubview(self)
                 NSLayoutConstraint.activate([
                     containerView.topAnchor.constraint(equalTo: topAnchor),
                     containerView.bottomAnchor.constraint(equalTo: bottomAnchor),
