@@ -53,6 +53,14 @@ open class VersaPlayer: AVPlayer, AVAssetResourceLoaderDelegate {
         #if DEBUG
             print("9 \(String(describing: self))")
         #endif
+        
+        if currentItem != nil && hasObservers {
+            currentItem!.removeObserver(self, forKeyPath: "playbackBufferEmpty")
+            currentItem!.removeObserver(self, forKeyPath: "playbackLikelyToKeepUp")
+            currentItem!.removeObserver(self, forKeyPath: "playbackBufferFull")
+            currentItem!.removeObserver(self, forKeyPath: "status")
+            hasObservers = false
+        }
     }
     
     /// Play content
