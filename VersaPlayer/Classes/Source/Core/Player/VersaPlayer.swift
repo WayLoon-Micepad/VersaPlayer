@@ -84,12 +84,13 @@ open class VersaPlayer: AVPlayer, AVAssetResourceLoaderDelegate {
             asset.resourceLoader.setDelegate(self, queue: queue)
         }
         
-//        if currentItem != nil {
-//            currentItem!.removeObserver(self, forKeyPath: "playbackBufferEmpty")
-//            currentItem!.removeObserver(self, forKeyPath: "playbackLikelyToKeepUp")
-//            currentItem!.removeObserver(self, forKeyPath: "playbackBufferFull")
-//            currentItem!.removeObserver(self, forKeyPath: "status")
-//        }
+        if currentItem != nil && hasObservers {
+            currentItem!.removeObserver(self, forKeyPath: "playbackBufferEmpty")
+            currentItem!.removeObserver(self, forKeyPath: "playbackLikelyToKeepUp")
+            currentItem!.removeObserver(self, forKeyPath: "playbackBufferFull")
+            currentItem!.removeObserver(self, forKeyPath: "status")
+            hasObservers = false
+        }
         
         super.replaceCurrentItem(with: item)
         NotificationCenter.default.post(name: VersaPlayer.VPlayerNotificationName.assetLoaded.notification, object: self, userInfo: nil)
@@ -98,8 +99,11 @@ open class VersaPlayer: AVPlayer, AVAssetResourceLoaderDelegate {
             currentItem!.addObserver(self, forKeyPath: "playbackLikelyToKeepUp", options: .new, context: nil)
             currentItem!.addObserver(self, forKeyPath: "playbackBufferFull", options: .new, context: nil)
             currentItem!.addObserver(self, forKeyPath: "status", options: .new, context: nil)
+            hasObservers = true
         }
     }
+    
+    private var hasObservers = false
     
 }
 
