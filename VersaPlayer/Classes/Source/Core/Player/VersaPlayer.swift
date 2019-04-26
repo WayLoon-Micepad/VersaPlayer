@@ -84,12 +84,12 @@ open class VersaPlayer: AVPlayer, AVAssetResourceLoaderDelegate {
             asset.resourceLoader.setDelegate(self, queue: queue)
         }
         
-        if currentItem != nil {
-            currentItem!.removeObserver(self, forKeyPath: "playbackBufferEmpty")
-            currentItem!.removeObserver(self, forKeyPath: "playbackLikelyToKeepUp")
-            currentItem!.removeObserver(self, forKeyPath: "playbackBufferFull")
-            currentItem!.removeObserver(self, forKeyPath: "status")
-        }
+//        if currentItem != nil {
+//            currentItem!.removeObserver(self, forKeyPath: "playbackBufferEmpty")
+//            currentItem!.removeObserver(self, forKeyPath: "playbackLikelyToKeepUp")
+//            currentItem!.removeObserver(self, forKeyPath: "playbackBufferFull")
+//            currentItem!.removeObserver(self, forKeyPath: "status")
+//        }
         
         super.replaceCurrentItem(with: item)
         NotificationCenter.default.post(name: VersaPlayer.VPlayerNotificationName.assetLoaded.notification, object: self, userInfo: nil)
