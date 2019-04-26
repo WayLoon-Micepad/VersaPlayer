@@ -173,7 +173,7 @@ extension VersaPlayer {
           self.handler?.playbackDelegate?.timeDidChange(player: self, to: time)
       }
 
-      addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions.new, context: nil)
+//      addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions.new, context: nil)
     }
     
     /// Value observer
